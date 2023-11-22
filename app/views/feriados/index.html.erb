@@ -8,19 +8,21 @@
   <div class="container mt-5">
     <h1>Feriados en Chile desde 2020 hasta este año</h1>
 
-    <!-- Sección previa a la tabla -->
+    <!-- Sección previa a la tabla, mostrar solucion en un array-->
     <div class="mb-4">
         <h2>Arreglo de Feriados</h2>
         <pre>
-        [
-          <% @feriados.each_with_index do |feriado, index| %>
-            "<%= feriado[:fecha] %>"<%= index == @feriados.size - 1 ? '' : ',' %>
-          <% end %>
-        ]
+            [
+            <%# recorre el array de feriados y separo el indice %>
+            <% @feriados.each_with_index do |feriado, index| %>
+            <%# recorre el array de feriados, imprime cada fecha del array entre comillas dobles, agrega una coma al final mientras no sea el ultimo indice del array %>
+                "<%= feriado[:fecha] %>"<%= index == @feriados.size - 1 ? '' : ',' %>
+            <% end %>
+            ]
         </pre>
     </div>
 
-    <!-- Tabla de Feriados -->
+    <!-- Tabla de Feriados, No fue solicitado pero quise ver como se veria en una tabla de boostrap -->
     <div class="mb-4">
         <h2>Tabla Feriados</h2>
         <table class="table">
@@ -31,6 +33,7 @@
             </tr>
         </thead>
         <tbody>
+            <%# recorre el array @feriados e imprime 2 columnas con el indice fecha y nombre por fila %>
             <% @feriados.each do |feriado| %>
             <tr>
                 <td><%= feriado[:fecha] %></td>
