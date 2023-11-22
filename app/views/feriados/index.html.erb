@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Feriados</title>
+  <!-- Incluye el enlace al archivo de estilos de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Feriados en Chile desde 2020 hasta este año</h1>
+
+    <!-- Sección previa a la tabla -->
+    <div class="mb-4">
+        <h2>Arreglo de Feriados</h2>
+        <pre>
+        [
+          <% @feriados.each_with_index do |feriado, index| %>
+            "<%= feriado[:fecha] %>"<%= index == @feriados.size - 1 ? '' : ',' %>
+          <% end %>
+        ]
+        </pre>
+    </div>
+
+    <!-- Tabla de Feriados -->
+    <div class="mb-4">
+        <h2>Tabla Feriados</h2>
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @feriados.each do |feriado| %>
+            <tr>
+                <td><%= feriado[:fecha] %></td>
+                <td><%= feriado[:nombre] %></td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+  </div>
+
+  <!-- Incluye el enlace a los scripts de Bootstrap al final del cuerpo del documento -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
